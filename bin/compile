@@ -84,6 +84,8 @@ echo "apache has been installed successfully..."
 cd ..
 echo "----> list of files and directory:$(ls -l)" 
 echo "----> list of files and directory:"$HOME
+cd $HOME
+echo "----> list of files and directory:$(ls -l)"
 #cp $compile_build_dir/index.html $apache2_build_dir/htdocs
 #echo "Copied index.html into htdocs..."
 # ------------------------------------------------------------------------------------------------
