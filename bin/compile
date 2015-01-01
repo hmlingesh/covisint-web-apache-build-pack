@@ -55,8 +55,9 @@ cp $compile_buildpack_bin/boot.sh .
 
 cd $compile_build_dir/httpd-2.2.29
 
+apache2_build_dir=$compile_build_dir/apache2
 #configure
-./configure --prefix=$compile_build_dir/apache2 \
+./configure --prefix=$apache2_build_dir \
 --enable-mods-shared=all \
 --enable-http \
 --enable-deflate \
@@ -71,7 +72,7 @@ cd $compile_build_dir/httpd-2.2.29
 --enable-mime-magic \
 --enable-log-debug \
 --with-mpm=event
-echo "config completed to:"$compile_build_dir/apache2
+echo "config completed to:"$apache2_build_dir
 
 #compile the source
 make
@@ -80,6 +81,6 @@ echo "apache has been compiled successfully..."
 #install
 make install
 echo "apache has been installed successfully..."
-
+cd ..
 echo "----> list of files and directory:$(ls -l)" 
 # ------------------------------------------------------------------------------------------------
