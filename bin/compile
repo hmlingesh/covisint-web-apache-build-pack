@@ -35,6 +35,8 @@ mv $compile_cache_dir/public .
 tar xzf $compile_nginx_tgz
 tar xzf $compile_httpd_tgz
 
+echo "----> list of files and directory:$(ls -l)" 
+
 cp -f $compile_buildpack_dir/conf/nginx.conf nginx/conf/nginx.conf
 cp -f $compile_buildpack_dir/conf/mime.types nginx/conf/mime.types
 
