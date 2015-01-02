@@ -11,6 +11,7 @@ compile_cache_dir=$2
 compile_buildpack_dir=$(cd $(dirname $0) && cd .. && pwd)
 compile_buildpack_bin=$compile_buildpack_dir/bin
 
+echo "Apache running.... "netstat -a | grep 9180
 echo "pwd: $(pwd)"
 echo "compile_build_dir: $compile_build_dir"
 echo "compile_cache_dir: $compile_cache_dir"
@@ -100,7 +101,7 @@ echo "changed apache http conf listen port from 80 to 9080"
 #start the apache
 $apache2_build_dir/bin/httpd -k start -f $apache2_build_dir/conf/httpd.conf
 echo "Apache has been started...."
-
+echo "Apache has been started.... "netstat -a | grep 9180
 # ------------------------------------------------------------------------------------------------
 
 
