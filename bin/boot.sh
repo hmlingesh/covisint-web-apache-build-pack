@@ -27,6 +27,6 @@ erb $APP_ROOT/nginx/conf/orig.conf > $APP_ROOT/nginx/conf/nginx.conf
 
 (tail -f -n 0 $APP_ROOT/nginx/logs/*.log &)
 #exec $APP_ROOT/nginx/sbin/nginx -p $APP_ROOT/nginx -c $APP_ROOT/nginx/conf/nginx.conf
-exec $apache2_build_dir/bin/httpd -k start -f $apache2_build_dir/conf/httpd.conf
+exec $APP_ROOT/apache2/bin/httpd -k start -f $APP_ROOT/apache2/conf/httpd.conf
 
 # ------------------------------------------------------------------------------------------------
