@@ -52,6 +52,7 @@ rm -f public/{manifest,stackato}.yml
 
 cp $compile_buildpack_bin/boot.sh .
 #ls -lah
+if [ ! -d "$compile_build_dir/apache2" ]; then
 
 cd $compile_build_dir/httpd-2.2.29
 
@@ -82,10 +83,19 @@ echo "apache has been compiled successfully..."
 make install
 echo "apache has been installed successfully..."
 cd ..
+ 
+fi
+
 echo "----> list of files and directory:$(ls -l)" 
 echo "----> list of files and directory:"$HOME
 cd $HOME
 echo "----> list of files and directory:$(ls -l)"
 cp $compile_build_dir/public/index.html $apache2_build_dir/htdocs
 echo "Copied index.html into htdocs..."
+
+# edit the http config to listen > 1024 port since we are not an root user
+#sed -i "s/Listen 80/ Listen 9080/g" $apache2_build_dir/conf/httpd.conf
+#echo "changed apache http conf listen port from 80 to 9080"
 # ------------------------------------------------------------------------------------------------
+
+
