@@ -105,7 +105,7 @@ sed -i "s/Listen 80/ Listen <%= ENV[\"PORT\"] %>/g" $apache2_build_dir/conf/http
 
 export APP_ROOT=$HOME
 
-echo "APP_ROOT:"$(APP_ROOT)
+echo "APP_ROOT:"$APP_ROOT
 cd $(APP_ROOT)
 echo "----> list of files and directory:$(ls -l)"
 # ------------------------------------------------------------------------------------------------
